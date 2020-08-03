@@ -31,14 +31,31 @@ feather-server-util = { path = "util" }
 feather-server-weather = { path = "weather" }
 feather-server-worldgen = { path = "worldgen" }
 
-fecs = { git = "https://github.com/feather-rs/fecs", rev = "0c4838d65b41ca059012b6e9147eabf0c275a731" }
-tokio = { version = "0.2", features = ["full"] }
-simple_logger = "1.6"
-log = "0.4"
-anyhow = "1.0"
-rand = "0.7"
-fxhash = "0.2"
-base64 = "0.12"
-spin_sleep = "1.0"
-crossbeam = "0.7"
-ctrlc = "3.1"
+#The storage-event-control feature is not in a stable version yet,
+#thus we need to use the git version.
+#Should be changed once the feature is in a stable version
+specs = { git = "https://github.com/slide-rs/specs", features = ["storage-event-control"] }
+
+rayon = "1.1.2"
+shrev = "1.1.1"
+failure = "0.1.5"
+backtrace = "0.3.35"
+num-derive = "0.2.5"
+num-traits = "0.2.8"
+smallvec = "0.6.10"
+lazy_static = "1.4.0"
+nalgebra-glm = "0.4.2"
+nalgebra = "0.18.1"
+ncollide3d = "0.20.1"
+derive_deref = "1.1.0"
+feather-codegen = { path = "../codegen" }
+bitflags = "1.1.0"
+fnv = "1.0.6"
+base64 = "0.10.1"
+bumpalo = "2.6.0"
+thread_local = "0.3.6"
+parking_lot = "0.9.0"
+heapless = "0.5.1"
+
+[features]
+nightly = ["specs/nightly", "parking_lot/nightly"]
